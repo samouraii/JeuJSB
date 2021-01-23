@@ -3,7 +3,7 @@ class Main:
 
     def afficher_les_options(self):
         print("Bienvenue dans mon jeu")
-        print("Voici toutes les options du jeu:")
+        print("Voici toutes les options du jeu DODA:")
         print("1) Récolter des ressources")
         print("2) Attaquer un monstre")
         print("3) Parler à une personne")
