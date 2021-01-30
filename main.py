@@ -1,5 +1,8 @@
+from bois import Bois
 
 class Main:
+    def __init__(self):
+        self.MonBois = Bois()
 
     def afficher_les_options(self):
         print("Bienvenue dans mon jeu")
@@ -14,7 +17,7 @@ class Main:
     
     def action(self, option):
         if(option == 1):
-            print("Tu as récolté du bois")
+            self.MonBois.couper()
         elif(option == 2):
             print("Tu as tué un monstre")
         elif(option == 3):
