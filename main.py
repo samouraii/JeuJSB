@@ -3,8 +3,10 @@ class Personne:
     def __init__(self, pos, nom):
         self.pos = pos
         self.nom = nom
-    def deplacer(self):
-        print("dans quel direction voulez vous allez?")      
+        
+    def deplacer(self, limite_carte_x, limite_carte_y):
+        print("dans quel direction voulez vous allez?")
+        print("la limite en x:", limite_carte_x, "la limite en y",limite_carte_y) 
         clavier = input("Quel direction (haut,Bas,droite,gauche)?")
         if clavier == "haut":
             self.pos = (self.pos[0] + 1,self.pos[1])
@@ -42,7 +44,7 @@ class Main:
         elif(option == 3):
             print("Tu as parlé à ...")
         elif(option == 4):
-            self.perso.deplacer()
+            self.perso.deplacer(len(self.carte.carte),len(self.carte.carte[0]))
             self.carte.affichage_pos(self.perso.pos)
 
     def main(self):
