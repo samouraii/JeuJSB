@@ -1,3 +1,4 @@
+import carte
 class Personne:
     def __init__(self, pos, nom):
         self.pos = pos
@@ -19,6 +20,7 @@ class Main:
 
     def __init__(self, perso):
         self.perso = perso
+        self.carte = carte.Map()
 
     def afficher_les_options(self):
         print("Bienvenue dans mon jeu " +self.perso.nom)
@@ -41,6 +43,7 @@ class Main:
             print("Tu as parlé à ...")
         elif(option == 4):
             self.perso.deplacer()
+            self.carte.affichage_pos(self.perso.pos)
 
     def main(self):
         option = -1
