@@ -16,6 +16,7 @@ class Personne:
             self.pos = (self.pos[0], self.pos[1]+1)
         else:
             self.pos = (self.pos[0] ,self.pos[1] -1)
+        self.pos = (self.pos[0] % limite_carte_x, self.pos[1] %limite_carte_y)
         print("tu es sur la carte:", self.pos)
     
 class Main:
