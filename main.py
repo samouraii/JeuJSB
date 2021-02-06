@@ -1,9 +1,27 @@
-
-
+class Personne:
+    def __init__(self, pos, nom):
+        self.pos = pos
+        self.nom = nom
+    def deplacer(self):
+        print("dans quel direction voulez vous allez?")      
+        clavier = input("Quel direction (haut,Bas,droite,gauche)?")
+        if clavier == "haut":
+            self.pos = (self.pos[0] + 1,self.pos[1])
+        elif clavier == "bas":
+            self.pos = (self.pos[0] -1,self.pos[1])
+        elif clavier == "droite":
+            self.pos = (self.pos[0], self.pos[1]+1)
+        else:
+            self.pos = (self.pos[0] ,self.pos[1] -1)
+        print("tu es sur la carte:", self.pos)
+    
 class Main:
 
+    def __init__(self, perso):
+        self.perso = perso
+
     def afficher_les_options(self):
-        print("Bienvenue dans mon jeu")
+        print("Bienvenue dans mon jeu " +self.perso.nom)
         print("Voici toutes les options du jeu DODA:")
         print("1) Récolter des ressources")
         print("2) Attaquer un monstre")
@@ -22,19 +40,21 @@ class Main:
         elif(option == 3):
             print("Tu as parlé à ...")
         elif(option == 4):
-            print("Tu tes déplacé")
+            self.perso.deplacer()
 
     def main(self):
-        
-        self.afficher_les_options()
-        option = int(self.input_option())
-        while( option < 1 or option > 4):
+        option = -1
+        while(option != 0):
             self.afficher_les_options()
             option = int(self.input_option())
-        self.action(option)
+            while( option < 0 or option > 4):
+                self.afficher_les_options()
+                option = int(self.input_option())
+            self.action(option)
         
         
 if __name__ == "__main__" :
-    initmain = Main()
+    personnage = Personne((0,0),"Adrien")
+    initmain = Main(personnage)
     initmain.main()
         
